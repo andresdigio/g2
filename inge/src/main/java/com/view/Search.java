@@ -49,7 +49,7 @@ public class Search {
                 if(chosen == null)
                     JOptionPane.showMessageDialog(null, "Please select a company");
                 else
-                    JOptionPane.showMessageDialog(null,"This is the eamil of the company you've chosen:\n\n"
+                    JOptionPane.showMessageDialog(null,"This is the email of the company you've chosen:\n\n"
                     + chosen.getName() + "@gmail.com\n\nFeel free to contact them whenever you want!");
 
             }
