@@ -4,11 +4,10 @@ package com.model;
  * Created by martina on 12/7/17.
  */
 public class Location {
-    private String street, city, country, province;
-    private Integer zipCode;
+    private String address, city, country, province, zipCode;
 
-    public Location(String street, String city, String country, String province, Integer zipCode) {
-        this.street = street;
+    public Location(String address, String city, String country, String province, String zipCode) {
+        this.address = address;
         this.city = city;
         this.country = country;
         this.province = province;
@@ -16,7 +15,7 @@ public class Location {
     }
 
     public String getStreet() {
-        return street;
+        return address;
     }
 
     public String getCity() {
@@ -31,7 +30,7 @@ public class Location {
         return province;
     }
 
-    public Integer getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 }

@@ -24,7 +24,6 @@ public class app extends JFrame{
         password.setToolTipText("Password");
 
         button1.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 com.model.Control.login(username.getText(), password.getText());
             }

@@ -1,6 +1,7 @@
 package com.view;
 
 import com.model.Company;
+import com.model.Singleton;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -8,6 +9,8 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+
+import static com.model.Control.getCompanies;
 
 /**
  * Created by martina on 12/7/17.
@@ -22,20 +25,18 @@ public class Search {
     private List<Company> companies;
 
     public Search() {
+        Singleton.init();
         frame = new JFrame("Search");
-        list = new JList<Company>();
+        list = new JList<>();
         panel = new JPanel();
         button = new JButton();
-        model = new DefaultListModel<Company>();
+        model = new DefaultListModel<>();
 
         list.setModel(model);
-        /*
         companies = getCompanies();
         for (Company c: companies)
             model.addElement(c);
-        */
-        model.addElement(new Company("Mertens"));
-        model.addElement(new Company("Griezman"));
+
         list.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {

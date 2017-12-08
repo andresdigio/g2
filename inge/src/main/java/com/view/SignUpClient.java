@@ -21,7 +21,7 @@ public class SignUpClient {
     private JComboBox country;
     private JButton btSingUp;
     private JButton btCancel;
-
+/*
     public SignUpClient() {
 
 

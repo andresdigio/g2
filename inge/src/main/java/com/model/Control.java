@@ -1,8 +1,12 @@
 package com.model;
 
+import javax.swing.*;
+import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Control {
 
@@ -50,7 +54,24 @@ public class Control {
         return 1;
     }
 
-    public static int signUpCompany(String name, String password, Location location, String phoneNumber, String photo) {
+    public static List<Company> getCompanies(){
+        List<Company> ret = new ArrayList<>();
+        Statement stmt = null;
+
+        try{
+            stmt = Singleton.db.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM business_user");
+            while(rs.next()){
+                ret.add(new Company(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public static int signUpCompany(String name, String password, Location location, String phoneNumber) {
+
         return 1;
     }
 
