@@ -69,19 +69,36 @@ public class Control {
         }
         return ret;
     }
-
-    public static int signUpCompany(String username, String password,String name, String email, String container_type, String transport,String load_size,String load_type,String tel_number,String service_type,String service_description,String incoterms,String services_included,Location location) {
+    /*
+    public static int signUpCompany(String username, String password,String name, String email, String container_type, String transport,String load_size,String load_type,String tel_number,String service_type,String service_description,String incoterms,String services_included,String country,String province,String department,String address,String zip) {
         Statement stmt = null;
         try {
             stmt = Singleton.db.createStatement();
-            stmt.executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(username, password, email, container_type, transport, load_size, load_type, location.getCountry(), location.getProvince(), location.getCity(), location.getAddress(), location.getZipCode(), tel_number, service_type, service_description, incoterms, services_included, name) + "); ");
+            stmt.executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(username, password, email, container_type, transport, load_size, load_type,country,province,department,address,zip,tel_number,service_type, service_description, incoterms, services_included, name) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return 1;
     }
-
-    public static int signUpClient(String username, String password, Location location, String phoneNumber) {
+    */
+    public static int signUpCompany(String ... args){
+        if(args.length != 18) return 0;
+        try {
+            Singleton.db.createStatement().executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(args) + "); ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
+    public static int signUpClient(String ... args) {
+        if(args.length != 10) return 0;
+        try {
+            Singleton.db.createStatement().executeUpdate("INSERT INTO client_user (username, pass, email, country, province, department, address, zip, tel_number, name) VALUES (" + Singleton.params(args) + "); ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
         return 1;
     }
 
