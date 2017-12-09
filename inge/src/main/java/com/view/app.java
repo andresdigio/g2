@@ -14,7 +14,7 @@ public class app extends JFrame{
     public static JFrame appFrame;
     public JPanel panel1;
     private JTextField username;
-    private JTextField password;
+    private JPasswordField password;
     private JButton signUpAsClientButton;
     private JButton signUpAsCompanyButton;
     private JButton logInButton;
@@ -24,7 +24,7 @@ public class app extends JFrame{
 
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                com.model.Control.login(username.getText(), password.getText());
+                com.model.Control.login(username.getText(), String.valueOf(password.getPassword()));
 
                 JFrame aux = new JFrame("Search companies");
                 aux.setContentPane(new Search(aux).panel);

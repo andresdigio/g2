@@ -13,6 +13,7 @@ import java.util.Locale;
 public class SignUpClient {
     private JFrame frame;
     public JPanel singUp;
+
     private JTextField name;
     private JTextField username;
     private JTextField address;
@@ -21,9 +22,12 @@ public class SignUpClient {
     private JTextField telephoneNumber;
     private JTextField province;
     private JTextField city;
+
     private JPasswordField passwordCreation;
     private JPasswordField passwordConfirmation;
+
     private JComboBox country;
+
     private JButton btSingUp;
     private JButton btCancel;
 
@@ -39,10 +43,10 @@ public class SignUpClient {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(String.valueOf(passwordConfirmation.getPassword()));
                 System.out.println(String.valueOf(passwordCreation.getPassword()));
-                if(String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword())))
+                if(!incorrectInput())
                     Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
                 else {
-                    JOptionPane.showMessageDialog(null, "Confirmation password must match password");
+                    JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
                 }
             }
         });
@@ -67,6 +71,10 @@ public class SignUpClient {
             Locale obj = new Locale("", countryCode);
             country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
         }
+    }
+
+    private boolean incorrectInput() {
+        return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zipcode.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || city.getText().equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
 
 //    public static void main(String[] args) {
