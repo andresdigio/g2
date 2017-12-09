@@ -25,15 +25,11 @@ public class Search {
     private List<Company> companies;
 
     public Search() {
-        Singleton.init();
-        frame = new JFrame("Search");
-        list = new JList<>();
-        panel = new JPanel();
-        button = new JButton();
         model = new DefaultListModel<>();
 
         list.setModel(model);
         companies = getCompanies();
+
         for (Company c: companies)
             model.addElement(c);
 
@@ -55,18 +51,16 @@ public class Search {
 
             }
         });
-
-        panel.add(list);
-        panel.add(button);
-
-        frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Search());
+       // SwingUtilities.invokeLater(() -> new Search());
+        Singleton.init();
+        JFrame frame = new JFrame("Search Companies");
+        frame.setContentPane(new Search().panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.pack();
     }
 
     private class Empresa {
