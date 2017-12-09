@@ -70,8 +70,14 @@ public class Control {
         return ret;
     }
 
-    public static int signUpCompany(String name, String password, Location location, String phoneNumber) {
-
+    public static int signUpCompany(String username, String password,String name, String email, String container_type, String transport,String load_size,String load_type,String tel_number,String service_type,String service_description,String incoterms,String services_included,Location location) {
+        Statement stmt = null;
+        try {
+            stmt = Singleton.db.createStatement();
+            stmt.executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(username, password, email, container_type, transport, load_size, load_type, location.getCountry(), location.getProvince(), location.getCity(), location.getAddress(), location.getZipCode(), tel_number, service_type, service_description, incoterms, services_included, name) + "); ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 1;
     }
 

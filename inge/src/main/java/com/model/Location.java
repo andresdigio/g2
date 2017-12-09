@@ -14,7 +14,7 @@ public class Location {
         this.zipCode = zipCode;
     }
 
-    public String getStreet() {
+    public String getAddress() {
         return address;
     }
 

@@ -11,6 +11,18 @@ public class Singleton {
 
     public static Connection db;
 
+    public static String params(String ... args){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < args.length; i++){
+            sb.append("'" + args[i] + "'");
+
+            if(i != args.length - 1)
+                sb.append(",");
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
     public static void init() {
 
         try {

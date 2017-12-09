@@ -94,4 +94,8 @@ public class Company extends User{
         this.services_included = services_included;
     }
 
+    public String toString(){
+        return getName() + getContainer_type() + getIncoterms();
+    }
+
 }
