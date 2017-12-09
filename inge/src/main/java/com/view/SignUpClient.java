@@ -19,10 +19,10 @@ public class SignUpClient {
     private JTextField zipcode;
     private JTextField email;
     private JTextField telephoneNumber;
+    private JTextField province;
+    private JTextField city;
     private JPasswordField passwordCreation;
     private JPasswordField passwordConfirmation;
-    private JComboBox city;
-    private JComboBox province;
     private JComboBox country;
     private JButton btSingUp;
     private JButton btCancel;
@@ -32,7 +32,6 @@ public class SignUpClient {
         this.frame = frame;
 
         initCountries();
-        initOptions();
 
         //TODO necesito inputs de los datos que estan en el comentario de la linea 35 y pasarlos asi como parametros.
         btSingUp.addActionListener(new ActionListener() {
@@ -41,7 +40,7 @@ public class SignUpClient {
                 System.out.println(String.valueOf(passwordConfirmation.getPassword()));
                 System.out.println(String.valueOf(passwordCreation.getPassword()));
                 if(String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword())))
-                    Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getSelectedItem().toString(), city.getSelectedItem().toString(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
+                    Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
                 else {
                     JOptionPane.showMessageDialog(null, "Confirmation password must match password");
                 }
@@ -59,12 +58,6 @@ public class SignUpClient {
                 aux.setVisible(true);
             }
         });
-    }
-
-    public void initOptions(){
-        province.addItem(new ComboItem("Buenos Aires", "1"));
-        city.addItem(new ComboItem("Buenos Aires", "2"));
-
     }
 
     public void initCountries(){

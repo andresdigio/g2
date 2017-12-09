@@ -67,16 +67,6 @@ public class Search {
         });
     }
 
-//    public static void main(String[] args) {
-//       SwingUtilities.invokeLater(() -> new Search());
-//        Singleton.init();
-//        JFrame frame = new JFrame("Search Companies");
-//        frame.setContentPane(new Search().panel);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//        frame.pack();
-//    }
-
     private class Empresa {
         private String name;
         private Integer number;
@@ -107,4 +97,14 @@ public class Search {
             return name;
         }
     }
+
+    //    public static void main(String[] args) {
+//       SwingUtilities.invokeLater(() -> new Search());
+//        Singleton.init();
+//        JFrame frame = new JFrame("Search Companies");
+//        frame.setContentPane(new Search().panel);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setVisible(true);
+//        frame.pack();
+//    }
 }
