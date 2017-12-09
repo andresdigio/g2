@@ -5,6 +5,7 @@ import com.model.Control;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 /**
  * Created by martina on 12/7/17.
@@ -14,21 +15,24 @@ public class SignUpClient {
     public JPanel singUp;
     private JTextField name;
     private JTextField username;
-    private JPasswordField passwordCreation;
-    private JPasswordField passwordConfirmation;
     private JTextField address;
     private JTextField zipcode;
+    private JTextField email;
     private JTextField telephoneNumber;
+    private JPasswordField passwordCreation;
+    private JPasswordField passwordConfirmation;
     private JComboBox city;
     private JComboBox province;
     private JComboBox country;
     private JButton btSingUp;
     private JButton btCancel;
-    private JTextField email;
 
     public SignUpClient(JFrame frame) {
 
         this.frame = frame;
+
+        initCountries();
+        initOptions();
 
         //TODO necesito inputs de los datos que estan en el comentario de la linea 35 y pasarlos asi como parametros.
         btSingUp.addActionListener(new ActionListener() {
@@ -36,11 +40,11 @@ public class SignUpClient {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(String.valueOf(passwordConfirmation.getPassword()));
                 System.out.println(String.valueOf(passwordCreation.getPassword()));
-//                if(String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword())))
-//                    Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getSelectedItem().toString(), city.getSelectedItem().toString(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
-//                else {
-//                    JOptionPane.showMessageDialog(null, "Confirmation password must match password");
-//                }
+                if(String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword())))
+                    Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getSelectedItem().toString(), city.getSelectedItem().toString(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
+                else {
+                    JOptionPane.showMessageDialog(null, "Confirmation password must match password");
+                }
             }
         });
 
@@ -56,6 +60,21 @@ public class SignUpClient {
                 aux.setVisible(true);
             }
         });
+    }
+
+    public void initOptions(){
+        province.addItem(new ComboItem("Buenos Aires", "1"));
+        city.addItem(new ComboItem("Buenos Aires", "2"));
+
+    }
+
+    public void initCountries(){
+        String[] locales = Locale.getISOCountries();
+
+        for (String countryCode : locales) {
+            Locale obj = new Locale("", countryCode);
+            country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
+        }
     }
 
 //    public static void main(String[] args) {

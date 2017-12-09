@@ -57,6 +57,7 @@ public class SignUpCompany {
             country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
         }
     }
+
     public static void main(String ... args){
         Singleton.init();
         SignUpCompany s = new SignUpCompany();
