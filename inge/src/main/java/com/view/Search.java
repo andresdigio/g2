@@ -1,7 +1,6 @@
 package com.view;
 
 import com.model.Company;
-import com.model.Singleton;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -17,14 +16,17 @@ import static com.model.Control.getCompanies;
  */
 public class Search {
     private JFrame frame;
-    private JPanel panel;
+    public JPanel panel;
     private JList<Company> list;
-    private JButton button;
+    private JButton contactButton;
+    private JButton logOutButton;
     private DefaultListModel<Company> model;
     private static Company chosen;
     private List<Company> companies;
 
-    public Search() {
+    public Search(JFrame frame) {
+        this.frame = frame;
+
         model = new DefaultListModel<>();
 
         list.setModel(model);
@@ -40,7 +42,7 @@ public class Search {
             }
         });
 
-        button.addActionListener(new ActionListener() {
+        contactButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(chosen == null)
@@ -51,17 +53,29 @@ public class Search {
 
             }
         });
+
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame aux = new JFrame("app");
+                aux.setContentPane(new app(aux).panel1);
+                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.pack();
+                frame.setVisible(false);
+                aux.setVisible(true);
+            }
+        });
     }
 
-    public static void main(String[] args) {
-       // SwingUtilities.invokeLater(() -> new Search());
-        Singleton.init();
-        JFrame frame = new JFrame("Search Companies");
-        frame.setContentPane(new Search().panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.pack();
-    }
+//    public static void main(String[] args) {
+//       SwingUtilities.invokeLater(() -> new Search());
+//        Singleton.init();
+//        JFrame frame = new JFrame("Search Companies");
+//        frame.setContentPane(new Search().panel);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setVisible(true);
+//        frame.pack();
+//    }
 
     private class Empresa {
         private String name;

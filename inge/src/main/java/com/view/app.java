@@ -1,6 +1,9 @@
 package com.view;
 
+import com.model.Singleton;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,33 +13,45 @@ import java.awt.event.ActionListener;
 public class app extends JFrame{
     public static JFrame appFrame;
     public JPanel panel1;
-    private JButton button1;
     private JTextField username;
     private JTextField password;
-    private JTextArea signIn;
-    private JButton signUpButton;
+    private JButton signUpAsClientButton;
+    private JButton signUpAsCompanyButton;
+    private JButton logInButton;
 
     public app(JFrame frame) {
-        button1 = new JButton();
-        username = new JTextField();
-        password = new JTextField();
-
         appFrame = frame;
 
-        username.setToolTipText("Username");
-        password.setToolTipText("Password");
-
-        button1.addActionListener(new ActionListener() {
+        logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 com.model.Control.login(username.getText(), password.getText());
+
+                JFrame aux = new JFrame("Search companies");
+                aux.setContentPane(new Search(aux).panel);
+                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.pack();
+                appFrame.setVisible(false);
+                aux.setVisible(true);
             }
         });
 
-        signUpButton.addActionListener(new ActionListener() {
+        signUpAsClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aux = new JFrame("SignUpClient");
+                JFrame aux = new JFrame("Sign up as client");
                 aux.setContentPane(new SignUpClient(aux).singUp);
+                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.pack();
+                appFrame.setVisible(false);
+                aux.setVisible(true);
+            }
+        });
+
+        signUpAsCompanyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame aux = new JFrame("Sign up as company");
+                aux.setContentPane(new SignUpCompany(aux).panel1);
                 aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 aux.pack();
                 appFrame.setVisible(false);
@@ -46,10 +61,15 @@ public class app extends JFrame{
     }
 
     public static void main(String[] args) {
+        Singleton.init();
         appFrame = new JFrame("app");
         appFrame.setContentPane(new app(appFrame).panel1);
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         appFrame.pack();
         appFrame.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

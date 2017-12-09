@@ -51,7 +51,6 @@ public class SignUpClient {
         btCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("njdkjdal");
                 JFrame aux = new JFrame("app");
                 aux.setContentPane(new app(aux).panel1);
                 aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
