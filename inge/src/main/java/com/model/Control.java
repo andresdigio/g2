@@ -15,19 +15,19 @@ public class Control {
 
         try {
             stmt = Singleton.db.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT username , pass FROM business_user WHERE username = '" +  username + "';");
+            ResultSet rs = stmt.executeQuery("SELECT username , password FROM business_user WHERE username = '" +  username + "';");
 
             while (rs.next()) {
-                if(rs.getString("pass").equals(password)) {
+                if(rs.getString("password").equals(password)) {
                     System.out.println("Correct password! Welcome business client.");
                     return 1;
                 }
             }
 
-            rs = stmt.executeQuery("SELECT username , pass FROM client_user WHERE username = '" + username+ "';");
+            rs = stmt.executeQuery("SELECT username , password FROM client_user WHERE username = '" + username+ "';");
 
             while (rs.next()) {
-                if(rs.getString("pass").equals(password)) {
+                if(rs.getString("password").equals(password)) {
                     System.out.println("Correct password! Welcome client.");
                     return 1;
                 }
@@ -74,7 +74,7 @@ public class Control {
         Statement stmt = null;
         try {
             stmt = Singleton.db.createStatement();
-            stmt.executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(username, password, email, container_type, transport, load_size, load_type,country,province,department,address,zip,tel_number,service_type, service_description, incoterms, services_included, name) + "); ");
+            stmt.executeUpdate("INSERT INTO business_user (username, password, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(username, password, email, container_type, transport, load_size, load_type,country,province,department,address,zip,tel_number,service_type, service_description, incoterms, services_included, name) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,9 +82,9 @@ public class Control {
     }
     */
     public static int signUpCompany(String ... args){
-        if(args.length != 18) return 0;
+        if(args.length != 20) return 0;
         try {
-            Singleton.db.createStatement().executeUpdate("INSERT INTO business_user (username, pass, email, container_type, transport, load_size, load_type, country, province, department, address, zip, tel_number, service_type, service_description, incoterms, services_included, name) VALUES (" + Singleton.params(args) + "); ");
+            Singleton.db.createStatement().executeUpdate("INSERT INTO business_user (username, password, email, country, province, department, address, zip, tel_number, name, serviceRange, serviceType, serviceCharacteristics, serviceIncoterms, serviceIncludes, transportContainer, transportType, loadSize, loadType) VALUES (" + Singleton.params(args) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
@@ -94,7 +94,7 @@ public class Control {
     public static int signUpClient(String ... args) {
         if(args.length != 10) return 0;
         try {
-            Singleton.db.createStatement().executeUpdate("INSERT INTO client_user (username, pass, email, country, province, department, address, zip, tel_number, name) VALUES (" + Singleton.params(args) + "); ");
+            Singleton.db.createStatement().executeUpdate("INSERT INTO client_user (username, password, email, country, province, department, address, zip, tel_number, name) VALUES (" + Singleton.params(args) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;

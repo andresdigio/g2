@@ -19,17 +19,23 @@ import static com.model.Control.getCompanies;
 public class Search {
     private JFrame frame;
     public JPanel panel;
+
     private JList<Company> list;
+    private DefaultListModel<Company> model;
+
     private JButton contactButton;
     private JButton logOutButton;
-    private JComboBox countryCB;
-    private JComboBox rangeCB;
-    private JComboBox containerCB;
-    private JComboBox transportCB;
-    private JComboBox characteristicsCB;
-    private JComboBox serviceCB;
     private JButton searchBtn;
-    private DefaultListModel<Company> model;
+
+    private JComboBox country;
+    private JComboBox serviceRange;
+    private JComboBox transportContainer;
+    private JComboBox transportType;
+    private JComboBox serviceCharacteristics;
+    private JComboBox serviceType;
+    private JComboBox serviceIncludes;
+    private JComboBox loadSize;
+
     private static Company chosen;
     private List<Company> companies;
 
@@ -81,28 +87,33 @@ public class Search {
                         model.addElement(c);
                 }
                 for(Company c: companies) {
-                    if(containerCB.getSelectedItem() != "ANY" && c.getContainer_type() != containerCB.getSelectedItem()) {
+                    if(country.getSelectedItem() != "ANY" && c.getLocation().getCountry() != country.getSelectedItem()) {
                         model.removeElement(c);
                     }
-                    if(transportCB.getSelectedItem() != "ANY" && c.getTransport() != transportCB.getSelectedItem()) {
+                    if(serviceRange.getSelectedItem() != "ANY" && c.getServiceRange() != serviceRange.getSelectedItem()) {
                         model.removeElement(c);
                     }
-                    if(countryCB.getSelectedItem() != "ANY" && c.getLocation().getCountry() != countryCB.getSelectedItem()) {
+                    if(serviceType.getSelectedItem() != "ANY" && c.getServiceType() != serviceType.getSelectedItem()) {
                         model.removeElement(c);
                     }
-                    if(serviceCB.getSelectedItem() != "ANY" && c.getService_type() != serviceCB.getSelectedItem()) {
+                    if(serviceCharacteristics.getSelectedItem() != "ANY" && c.getServiceCharacteristics() != serviceCharacteristics.getSelectedItem()) {
                         model.removeElement(c);
                     }
-                    if(rangeCB.getSelectedItem() != "ANY" && c.getLoad_type() != rangeCB.getSelectedItem()) {
+                    if(serviceIncludes.getSelectedItem() != "ANY" && c.getServiceIncludes() != serviceIncludes.getSelectedItem()) {
                         model.removeElement(c);
                     }
-                    if(characteristicsCB.getSelectedItem() != "ANY" && c.getService_description() != characteristicsCB.getSelectedItem()) {
+                    if(transportContainer.getSelectedItem() != "ANY" && c.getTransportContainer() != transportContainer.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(transportType.getSelectedItem() != "ANY" && c.getTransportType() != transportType.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(loadSize.getSelectedItem() != "ANY" && c.getLoadSize() != loadSize.getSelectedItem()) {
                         model.removeElement(c);
                     }
                 }
             }
         });
-
     }
 
     private void initCompanies() {
@@ -112,35 +123,49 @@ public class Search {
     }
 
     public void initFilters(){
-        countryCB.addItem("ANY");
+        country.addItem("ANY");
         String[] locales = Locale.getISOCountries();
         for (String countryCode : locales) {
             Locale obj = new Locale("", countryCode);
-            countryCB.addItem(obj.getDisplayCountry(Locale.ENGLISH));
+            country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
         }
 
-        serviceCB.addItem("ANY");
-        serviceCB.addItem("Importation");
-        serviceCB.addItem("Exportation");
+        serviceType.addItem("ANY");
+        serviceType.addItem("Importation");
+        serviceType.addItem("Exportation");
 
-        rangeCB.addItem("ANY");
-        rangeCB.addItem("International");
-        rangeCB.addItem("National");
+        serviceRange.addItem("ANY");
+        serviceRange.addItem("International");
+        serviceRange.addItem("National");
 
-        characteristicsCB.addItem("ANY");
-        characteristicsCB.addItem("Door to door");
-        characteristicsCB.addItem("Deliver at terminal");
-        characteristicsCB.addItem("Deliver at deposit");
+        serviceCharacteristics.addItem("ANY");
+        serviceCharacteristics.addItem("Door to door");
+        serviceCharacteristics.addItem("Deliver at terminal");
+        serviceCharacteristics.addItem("Deliver at deposit");
 
-        containerCB.addItem("ANY");
-        containerCB.addItem("FCL");
-        containerCB.addItem("LCL");
+        serviceIncludes.addItem("ANY");
+        serviceIncludes.addItem("Transport of dangerous packages");
+        serviceIncludes.addItem("Loading services");
+        serviceIncludes.addItem("Customs management");
+        serviceIncludes.addItem("Preboarding customs inspection");
+        serviceIncludes.addItem("Tracking services");
+        serviceIncludes.addItem("Local control agencies");
+        serviceIncludes.addItem("Insurance");
 
-        transportCB.addItem("ANY");
-        transportCB.addItem("Air");
-        transportCB.addItem("Sea");
-        transportCB.addItem("Ground");
+        transportContainer.addItem("ANY");
+        transportContainer.addItem("FCL");
+        transportContainer.addItem("LCL");
 
+        transportType.addItem("ANY");
+        transportType.addItem("Air");
+        transportType.addItem("Sea");
+        transportType.addItem("Ground");
+
+        loadSize.addItem("ANY");
+        loadSize.addItem("Small");
+        loadSize.addItem("Medium");
+        loadSize.addItem("Large");
+        loadSize.addItem("Oversized");
     }
 
     public static void main(String[] args) {

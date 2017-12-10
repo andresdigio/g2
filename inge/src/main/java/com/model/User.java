@@ -7,7 +7,7 @@ public class User {
     private String username,email, name, lastName, phoneNum;
     private Location location;
 
-    public User(String username, String name, String email, Location location,String phoneNum){
+    public User(String username, String name, String email, Location location, String phoneNum){
         this.username = username;
         this.name = name;
         this.email = email;

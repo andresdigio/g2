@@ -14,23 +14,27 @@ public class SignUpCompany {
     private JTextField name;
     private JTextField email;
     private JTextField username;
-    private JTextField department;
-    private JTextField incoterms;
-    private JTextField pkgsize;
-    private JTextField province;
-    private JTextField address;
-    private JTextField zip;
-    private JTextField phone;
-
     private JPasswordField creationPassword;
     private JPasswordField confirmationPassword;
 
     private JComboBox country;
-    private JComboBox characteristics;
-    private JComboBox service_type;
+    private JTextField province;
+    private JTextField department;
+    private JTextField address;
+    private JTextField zip;
+    private JTextField phone;
+
+    private JComboBox serviceRange;
+    private JComboBox serviceType;
+    private JComboBox serviceCharacteristics;
+    private JComboBox serviceIncludes;
+    private JTextField serviceIncoterms;
+
+    private JComboBox transportContainer;
     private JComboBox transportType;
-    private JComboBox containerType;
-    private JComboBox pkgType;
+
+    private JComboBox loadSize;
+    private JTextField loadType;
 
     private JButton signUpButton;
     private JButton cancelButton;
@@ -39,14 +43,13 @@ public class SignUpCompany {
 
         this.frame = frame;
 
-        initCountries();
         initOptions();
 
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    int ret = Control.signUpCompany(username.getText(), creationPassword.getSelectedText(), name.getText(), email.getText(), containerType.getSelectedItem().toString(), transportType.getSelectedItem().toString(), pkgsize.getText(), pkgType.getSelectedItem().toString(), phone.getText(), service_type.getSelectedItem().toString(), characteristics.getSelectedItem().toString(), incoterms.getText(), "servicios incluidos", country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText());
+                    int ret = Control.signUpCompany(name.getText(), email.getText(), username.getText(), creationPassword.getSelectedText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     System.out.println(ret);
                     goToApp();
                 }
@@ -75,24 +78,37 @@ public class SignUpCompany {
     }
 
     public void initOptions(){
-        service_type.addItem("Importation");
-        service_type.addItem("Exportation");
+        initCountries();
 
-        pkgType.addItem("International");
-        pkgType.addItem("National");
+        serviceRange.addItem("International");
+        serviceRange.addItem("National");
 
-        characteristics.addItem("Door to door");
-        characteristics.addItem("Deliver at terminal");
-        characteristics.addItem("Deliver at deposit");
+        serviceType.addItem("Importation");
+        serviceType.addItem("Exportation");
 
-        containerType.addItem("FCL");
-        containerType.addItem("LCL");
+        serviceCharacteristics.addItem("Door to door");
+        serviceCharacteristics.addItem("Deliver at terminal");
+        serviceCharacteristics.addItem("Deliver at deposit");
+
+        serviceIncludes.addItem("Transport of dangerous packages");
+        serviceIncludes.addItem("Loading services");
+        serviceIncludes.addItem("Customs management");
+        serviceIncludes.addItem("Preboarding customs inspection");
+        serviceIncludes.addItem("Tracking services");
+        serviceIncludes.addItem("Local control agencies");
+        serviceIncludes.addItem("Insurance");
+
+        transportContainer.addItem("FCL");
+        transportContainer.addItem("LCL");
 
         transportType.addItem("Air");
         transportType.addItem("Sea");
         transportType.addItem("Ground");
 
-
+        loadSize.addItem("Small");
+        loadSize.addItem("Medium");
+        loadSize.addItem("Large");
+        loadSize.addItem("Oversized");
     }
 
     public void initCountries(){

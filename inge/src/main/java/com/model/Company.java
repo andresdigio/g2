@@ -4,98 +4,103 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Company extends User{
-    private String container_type, transport, load_size, load_type, service_type, service_description, incoterms, services_included;
+    private String serviceRange, serviceType, serviceCharacteristics, serviceIncoterms, serviceIncludes, transportContainer, transportType, loadSize, loadType;
 
-    public Company(String username, String name, String email, Location location,String phoneNum,String container_type,String transport,String load_size,String load_type,String service_type,String service_description,String incoterms,String services_included) {
+    public Company(String username, String name, String email, Location location, String phoneNum, String serviceRange, String serviceType, String serviceCharacteristics, String serviceIncoterms, String serviceIncludes, String transportContainer, String transportType, String loadSize, String loadType) {
         super(username, name, email, location, phoneNum);
-        this.container_type = container_type;
-        this.transport = transport;
-        this.load_size = load_size;
-        this.load_type = load_type;
-        this.service_type = service_type;
-        this.service_description = service_description;
-        this.incoterms = incoterms;
-        this.services_included = services_included;
+        this.serviceRange = serviceRange;
+        this.serviceType = serviceType;
+        this.serviceCharacteristics = serviceCharacteristics;
+        this.serviceIncoterms = serviceIncoterms;
+        this.serviceIncludes = serviceIncludes;
+        this.transportContainer = transportContainer;
+        this.transportType = transportType;
+        this.loadSize = loadSize;
+        this.loadType = loadType;
     }
 
     public Company(ResultSet rs) throws SQLException {
         super(rs);
-        container_type = rs.getString("container_type");
-        transport = rs.getString("transport");
-        load_size = rs.getString("load_size");
-        load_type = rs.getString("load_type");
-        service_type = rs.getString("service_type");
-        service_description = rs.getString("service_description");
-        incoterms = rs.getString("incoterms");
-        services_included = rs.getString("services_included");
+        serviceRange = rs.getString("serviceRange");
+        serviceType = rs.getString("serviceType");
+        serviceCharacteristics = rs.getString("serviceCharacteristics");
+        serviceIncoterms = rs.getString("serviceIncoterms");
+        serviceIncludes = rs.getString("serviceIncludes");
+        transportContainer = rs.getString("transportContainer");
+        transportType = rs.getString("transportType");
+        loadSize = rs.getString("loadSize");
+        loadType = rs.getString("loadType");
     }
 
-    public String getContainer_type() {
-        return container_type;
+    public String getServiceRange() {
+        return serviceRange;
     }
 
-    public void setContainer_type(String container_type) {
-        this.container_type = container_type;
+    public void setServiceRange(String serviceRange) {
+        this.serviceRange = serviceRange;
     }
 
-    public String getTransport() {
-        return transport;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setTransport(String transport) {
-        this.transport = transport;
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
     }
 
-    public String getLoad_size() {
-        return load_size;
+    public String getServiceCharacteristics() {
+        return serviceCharacteristics;
     }
 
-    public void setLoad_size(String load_size) {
-        this.load_size = load_size;
+    public void setServiceCharacteristics(String serviceCharacteristics) {
+        this.serviceCharacteristics = serviceCharacteristics;
     }
 
-    public String getLoad_type() {
-        return load_type;
+    public String getServiceIncoterms() {
+        return serviceIncoterms;
     }
 
-    public void setLoad_type(String load_type) {
-        this.load_type = load_type;
+    public void setServiceIncoterms(String serviceIncoterms) {
+        this.serviceIncoterms = serviceIncoterms;
     }
 
-    public String getService_type() {
-        return service_type;
+    public String getServiceIncludes() {
+        return serviceIncludes;
     }
 
-    public void setService_type(String service_type) {
-        this.service_type = service_type;
+    public void setServiceIncludes(String serviceIncludes) {
+        this.serviceIncludes = serviceIncludes;
     }
 
-    public String getService_description() {
-        return service_description;
+    public String getTransportContainer() {
+        return transportContainer;
     }
 
-    public void setService_description(String service_description) {
-        this.service_description = service_description;
+    public void setTransportContainer(String transportContainer) {
+        this.transportContainer = transportContainer;
     }
 
-    public String getIncoterms() {
-        return incoterms;
+    public String getTransportType() {
+        return transportType;
     }
 
-    public void setIncoterms(String incoterms) {
-        this.incoterms = incoterms;
+    public void setTransportType(String transportType) {
+        this.transportType = transportType;
     }
 
-    public String getServices_included() {
-        return services_included;
+    public String getLoadSize() {
+        return loadSize;
     }
 
-    public void setServices_included(String services_included) {
-        this.services_included = services_included;
+    public void setLoadSize(String loadSize) {
+        this.loadSize = loadSize;
     }
 
-    public String toString(){
-        return getName() + getContainer_type() + getIncoterms();
+    public String getLoadType() {
+        return loadType;
     }
 
+    public void setLoadType(String loadType) {
+        this.loadType = loadType;
+    }
 }
