@@ -1,6 +1,7 @@
 package com.view;
 
 import com.model.Company;
+import com.model.Singleton;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -8,6 +9,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Locale;
 
 import static com.model.Control.getCompanies;
 
@@ -20,6 +22,13 @@ public class Search {
     private JList<Company> list;
     private JButton contactButton;
     private JButton logOutButton;
+    private JComboBox countryCB;
+    private JComboBox rangeCB;
+    private JComboBox containerCB;
+    private JComboBox transportCB;
+    private JComboBox characteristicsCB;
+    private JComboBox serviceCB;
+    private JButton searchBtn;
     private DefaultListModel<Company> model;
     private static Company chosen;
     private List<Company> companies;
@@ -28,12 +37,10 @@ public class Search {
         this.frame = frame;
 
         model = new DefaultListModel<>();
-
         list.setModel(model);
-        companies = getCompanies();
 
-        for (Company c: companies)
-            model.addElement(c);
+        initCompanies();
+        initFilters();
 
         list.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -65,46 +72,83 @@ public class Search {
                 aux.setVisible(true);
             }
         });
+
+        searchBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(Company c: companies) {
+                    if(!model.contains(c))
+                        model.addElement(c);
+                }
+                for(Company c: companies) {
+                    if(containerCB.getSelectedItem() != "ANY" && c.getContainer_type() != containerCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(transportCB.getSelectedItem() != "ANY" && c.getTransport() != transportCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(countryCB.getSelectedItem() != "ANY" && c.getLocation().getCountry() != countryCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(serviceCB.getSelectedItem() != "ANY" && c.getService_type() != serviceCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(rangeCB.getSelectedItem() != "ANY" && c.getLoad_type() != rangeCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                    if(characteristicsCB.getSelectedItem() != "ANY" && c.getService_description() != characteristicsCB.getSelectedItem()) {
+                        model.removeElement(c);
+                    }
+                }
+            }
+        });
+
     }
 
-    private class Empresa {
-        private String name;
-        private Integer number;
-
-        public Empresa(String name, Integer number) {
-            this.name = name;
-            this.number = number;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public Integer getNumber() {
-            return number;
-        }
-
-        public void setNumber(Integer number) {
-            this.number = number;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
+    private void initCompanies() {
+        companies = getCompanies();
+        for (Company c: companies)
+            model.addElement(c);
     }
 
-    //    public static void main(String[] args) {
-//       SwingUtilities.invokeLater(() -> new Search());
-//        Singleton.init();
-//        JFrame frame = new JFrame("Search Companies");
-//        frame.setContentPane(new Search().panel);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//        frame.pack();
-//    }
+    public void initFilters(){
+        countryCB.addItem("ANY");
+        String[] locales = Locale.getISOCountries();
+        for (String countryCode : locales) {
+            Locale obj = new Locale("", countryCode);
+            countryCB.addItem(obj.getDisplayCountry(Locale.ENGLISH));
+        }
+
+        serviceCB.addItem("ANY");
+        serviceCB.addItem("Importation");
+        serviceCB.addItem("Exportation");
+
+        rangeCB.addItem("ANY");
+        rangeCB.addItem("International");
+        rangeCB.addItem("National");
+
+        characteristicsCB.addItem("ANY");
+        characteristicsCB.addItem("Door to door");
+        characteristicsCB.addItem("Deliver at terminal");
+        characteristicsCB.addItem("Deliver at deposit");
+
+        containerCB.addItem("ANY");
+        containerCB.addItem("FCL");
+        containerCB.addItem("LCL");
+
+        transportCB.addItem("ANY");
+        transportCB.addItem("Air");
+        transportCB.addItem("Sea");
+        transportCB.addItem("Ground");
+
+    }
+
+    public static void main(String[] args) {
+        Singleton.init();
+        JFrame frame = new JFrame("Search Companies");
+        frame.setContentPane(new Search(frame).panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.pack();
+    }
 }
