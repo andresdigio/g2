@@ -1,6 +1,6 @@
 package com.view;
 
-import com.model.Control;
+import com.Control.Control;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -49,7 +49,7 @@ public class SignUpCompany {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    int ret = Control.signUpCompany(name.getText(), email.getText(), username.getText(), creationPassword.getSelectedText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
+                    int ret = Control.signUpCompany(username.getText(),name.getText(), email.getText(), String.valueOf(creationPassword.getPassword()), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     System.out.println(ret);
                     goToApp();
                 }

@@ -1,9 +1,10 @@
 package com.view;
 
+import com.Control.Control;
+import com.model.Login;
 import com.model.Singleton;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,14 +25,28 @@ public class app extends JFrame{
 
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                com.model.Control.login(username.getText(), String.valueOf(password.getPassword()));
-
-                JFrame aux = new JFrame("Search companies");
-                aux.setContentPane(new Search(aux).panel);
-                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                aux.pack();
-                appFrame.setVisible(false);
-                aux.setVisible(true);
+                Login ret = com.Control.Control.login(username.getText(), String.valueOf(password.getPassword()));
+                JFrame aux;
+                switch (ret){
+                    case FAIL:
+                        JOptionPane.showMessageDialog(appFrame, "Failed authentication.");
+                        break;
+                    case CLIENT:
+                        aux = new JFrame("Search companies");
+                        aux.setContentPane(new Search(aux).panel);
+                        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        aux.pack();
+                        appFrame.setVisible(false);
+                        aux.setVisible(true);
+                        break;
+                    case COMPANY:
+                        aux = new JFrame("Edit Company");
+                        aux.setContentPane(new CompanySettings(aux).panel);
+                        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        aux.pack();
+                        appFrame.setVisible(false);
+                        aux.setVisible(true);
+                }
             }
         });
 

@@ -1,6 +1,6 @@
 package com.view;
 
-import com.model.Control;
+import com.Control.Control;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,11 +41,12 @@ public class SignUpClient {
         btSingUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(String.valueOf(passwordConfirmation.getPassword()));
-                System.out.println(String.valueOf(passwordCreation.getPassword()));
+                int ret = 1;
                 if(!incorrectInput())
-                    Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
-                else {
+                    ret = Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
+                    if(ret == 0)
+                        JOptionPane.showMessageDialog(null, "Invalid username :(");
+                    else {
                     JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
                 }
             }

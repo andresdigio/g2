@@ -1,4 +1,8 @@
-package com.model;
+package com.Control;
+
+import com.model.Company;
+import com.model.Login;
+import com.model.Singleton;
 
 import javax.swing.*;
 import javax.xml.transform.Result;
@@ -8,28 +12,29 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Control {
 
-    public static int login(String username, String password){
+    public static com.model.Login login(String username, String password){
         Statement stmt = null;
 
         try {
             stmt = Singleton.db.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT username , password FROM business_user WHERE username = '" +  username + "';");
+            ResultSet rs = stmt.executeQuery("SELECT username , pass FROM business_user WHERE username = '" +  username + "';");
 
             while (rs.next()) {
-                if(rs.getString("password").equals(password)) {
+                if(rs.getString("pass").equals(password)) {
                     System.out.println("Correct password! Welcome business client.");
-                    return 1;
+                    return Login.COMPANY;
                 }
             }
 
-            rs = stmt.executeQuery("SELECT username , password FROM client_user WHERE username = '" + username+ "';");
+            rs = stmt.executeQuery("SELECT username , pass FROM client_user WHERE username = '" + username+ "';");
 
             while (rs.next()) {
-                if(rs.getString("password").equals(password)) {
+                if(rs.getString("pass").equals(password)) {
                     System.out.println("Correct password! Welcome client.");
-                    return 1;
+                    return Login.CLIENT;
                 }
             }
 
@@ -51,7 +56,7 @@ public class Control {
 
         System.out.println("Incorrect password.");
 
-        return 1;
+        return Login.FAIL;
     }
 
     public static List<Company> getCompanies(){
@@ -81,20 +86,57 @@ public class Control {
         return 1;
     }
     */
-    public static int signUpCompany(String ... args){
-        if(args.length != 20) return 0;
+
+    private static boolean exists(String username){
+        Statement stmt = null;
+
         try {
-            Singleton.db.createStatement().executeUpdate("INSERT INTO business_user (username, password, email, country, province, department, address, zip, tel_number, name, serviceRange, serviceType, serviceCharacteristics, serviceIncoterms, serviceIncludes, transportContainer, transportType, loadSize, loadType) VALUES (" + Singleton.params(args) + "); ");
+            stmt = Singleton.db.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT username FROM business_user WHERE username = '" +  username + "';");
+
+            if(rs.next())
+                return true;
+
+            rs = stmt.executeQuery("SELECT username FROM client_user WHERE username = '" + username+ "';");
+
+            if(rs.next())
+                return true;
+
+        } catch (SQLException e ) {
+            e.printStackTrace();
+
+        } finally {
+
+            if (stmt != null) {
+
+                try {
+                    stmt.close();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static int signUpCompany(String username, String ... args){
+        if(exists(username))
+            return 0;
+        try {
+            Singleton.db.createStatement().executeUpdate("INSERT INTO business_user (username, name, email, pass, country, province, department, address, zip,  tel_number, serviceRange, serviceType, serviceCharacteristics, serviceIncoterms, serviceIncludes,transportContainer, transportType, loadSize, loadType) VALUES (" + Singleton.params(username, args) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
         return 1;
     }
-    public static int signUpClient(String ... args) {
-        if(args.length != 10) return 0;
+    public static int signUpClient(String username, String ... args) {
+        if(exists(username))
+            return 0;
         try {
-            Singleton.db.createStatement().executeUpdate("INSERT INTO client_user (username, password, email, country, province, department, address, zip, tel_number, name) VALUES (" + Singleton.params(args) + "); ");
+            Singleton.db.createStatement().executeUpdate("INSERT INTO client_user (username, pass, email, country, province, department, address, zip, tel_number, name) VALUES (" + Singleton.params(username,args) + "); ");
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;

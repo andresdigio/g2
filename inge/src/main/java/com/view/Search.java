@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Locale;
 
-import static com.model.Control.getCompanies;
+import static com.Control.Control.getCompanies;
 
 /**
  * Created by martina on 12/7/17.

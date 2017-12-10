@@ -11,8 +11,9 @@ public class Singleton {
 
     public static Connection db;
 
-    public static String params(String ... args){
+    public static String params(String u, String ... args){
         StringBuilder sb = new StringBuilder();
+        sb.append("'" + u + "',");
         for(int i = 0; i < args.length; i++){
             sb.append("'" + args[i] + "'");
 
