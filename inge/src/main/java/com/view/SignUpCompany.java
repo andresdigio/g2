@@ -1,11 +1,14 @@
 package com.view;
 
 import com.Control.Control;
+import com.model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
+
+import static com.view.app.goToApp;
 
 public class SignUpCompany {
     private JFrame frame;
@@ -49,9 +52,9 @@ public class SignUpCompany {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    int ret = Control.signUpCompany(username.getText(),name.getText(), email.getText(), String.valueOf(creationPassword.getPassword()), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
+                    int ret = Control.signUpCompany(username.getText(),name.getText(), email.getText(), Singleton.hash(String.valueOf(creationPassword.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     System.out.println(ret);
-                    goToApp();
+                    goToApp(frame);
                 }
                 else
                     JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
@@ -61,20 +64,11 @@ public class SignUpCompany {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                goToApp();
+                goToApp(frame);
             }
         });
 
 
-    }
-
-    private void goToApp() {
-        JFrame aux = new JFrame("app");
-        aux.setContentPane(new app(aux).panel1);
-        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        aux.pack();
-        frame.setVisible(false);
-        aux.setVisible(true);
     }
 
     public void initOptions(){

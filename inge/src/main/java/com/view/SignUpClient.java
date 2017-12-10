@@ -1,11 +1,14 @@
 package com.view;
 
 import com.Control.Control;
+import com.model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
+
+import static com.view.app.goToApp;
 
 /**
  * Created by martina on 12/7/17.
@@ -42,28 +45,25 @@ public class SignUpClient {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int ret = 1;
-                if(!incorrectInput())
-                    ret = Control.signUpClient(username.getText(), String.valueOf(passwordCreation.getPassword()), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
+                if(!incorrectInput()){
+                    ret = Control.signUpClient(username.getText(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), city.getText(), address.getText(), zipcode.getText(), telephoneNumber.getText(), name.getText());
+                    goToApp(frame);
                     if(ret == 0)
                         JOptionPane.showMessageDialog(null, "Invalid username :(");
-                    else {
+                }else
                     JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
-                }
             }
         });
 
         btCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aux = new JFrame("app");
-                aux.setContentPane(new app(aux).panel1);
-                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                aux.pack();
-                frame.setVisible(false);
-                aux.setVisible(true);
+                goToApp(frame);
             }
         });
     }
+
+
 
     public void initCountries(){
         String[] locales = Locale.getISOCountries();

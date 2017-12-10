@@ -75,6 +75,15 @@ public class app extends JFrame{
         });
     }
 
+    public static void goToApp(JFrame frame){
+        JFrame aux = new JFrame("app");
+        aux.setContentPane(new app(aux).panel1);
+        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        aux.pack();
+        frame.setVisible(false);
+        aux.setVisible(true);
+    }
+
     public static void main(String[] args) {
         Singleton.init();
         appFrame = new JFrame("app");
