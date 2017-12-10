@@ -19,7 +19,7 @@ public class User {
         this.username = rs.getString("username");
         this.name = rs.getString("name");
         this.email = rs.getString("email");
-        this.location = new Location(rs.getString("address"),rs.getString("department"),rs.getString("province"),rs.getString("country"),rs.getString("zip"));
+        this.location = new Location(rs.getString("address"),rs.getString("department"), rs.getString("country"),rs.getString("province"),rs.getString("zip"));
         this.phoneNum = rs.getString("tel_number");
     }
 

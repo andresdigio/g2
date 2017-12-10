@@ -2,6 +2,7 @@ package com.view;
 
 import com.model.Company;
 import com.model.Singleton;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -20,8 +21,8 @@ public class Search {
     private JFrame frame;
     public JPanel panel;
 
-    private JList<Company> list;
-    private DefaultListModel<Company> model;
+    private JList<String> list;
+    private DefaultListModel<String> model;
 
     private JButton contactButton;
     private JButton logOutButton;
@@ -36,13 +37,13 @@ public class Search {
     private JComboBox serviceIncludes;
     private JComboBox loadSize;
 
-    private static Company chosen;
+    private static String chosen;
     private List<Company> companies;
 
     public Search(JFrame frame) {
         this.frame = frame;
 
-        model = new DefaultListModel<>();
+        model = new DefaultListModel<String>();
         list.setModel(model);
 
         initCompanies();
@@ -62,7 +63,7 @@ public class Search {
                     JOptionPane.showMessageDialog(null, "Please select a company");
                 else
                     JOptionPane.showMessageDialog(null,"This is the email of the company you've chosen:\n\n"
-                    + chosen.getName() + "@gmail.com\n\nFeel free to contact them whenever you want!");
+                    + chosen + "@gmail.com\n\nFeel free to contact them whenever you want!");
 
             }
         });
@@ -83,33 +84,33 @@ public class Search {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for(Company c: companies) {
-                    if(!model.contains(c))
-                        model.addElement(c);
+                    if(!model.contains(c.getName()))
+                        model.addElement(c.getName());
                 }
                 for(Company c: companies) {
-                    if(country.getSelectedItem() != "ANY" && c.getLocation().getCountry() != country.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(country.getSelectedItem().toString() != "ANY" && c.getLocation().getCountry().equals(country.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(serviceRange.getSelectedItem() != "ANY" && c.getServiceRange() != serviceRange.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(serviceRange.getSelectedItem().toString() != "ANY" && c.getServiceRange().equals(serviceRange.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(serviceType.getSelectedItem() != "ANY" && c.getServiceType() != serviceType.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(serviceType.getSelectedItem().toString() != "ANY" && c.getServiceType().equals(serviceType.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(serviceCharacteristics.getSelectedItem() != "ANY" && c.getServiceCharacteristics() != serviceCharacteristics.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(serviceCharacteristics.getSelectedItem().toString() != "ANY" && c.getServiceCharacteristics().equals(serviceCharacteristics.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(serviceIncludes.getSelectedItem() != "ANY" && c.getServiceIncludes() != serviceIncludes.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(serviceIncludes.getSelectedItem().toString() != "ANY" && c.getServiceIncludes().equals(serviceIncludes.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(transportContainer.getSelectedItem() != "ANY" && c.getTransportContainer() != transportContainer.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(transportContainer.getSelectedItem().toString() != "ANY" && c.getTransportContainer().equals(transportContainer.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(transportType.getSelectedItem() != "ANY" && c.getTransportType() != transportType.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(transportType.getSelectedItem().toString() != "ANY" && c.getTransportType().equals(transportType.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
-                    if(loadSize.getSelectedItem() != "ANY" && c.getLoadSize() != loadSize.getSelectedItem()) {
-                        model.removeElement(c);
+                    if(loadSize.getSelectedItem().toString() != "ANY" && c.getLoadSize().equals(loadSize.getSelectedItem().toString())) {
+                        model.removeElement(c.getName());
                     }
                 }
             }
@@ -119,7 +120,7 @@ public class Search {
     private void initCompanies() {
         companies = getCompanies();
         for (Company c: companies)
-            model.addElement(c);
+            model.addElement(c.getName());
     }
 
     public void initFilters(){
