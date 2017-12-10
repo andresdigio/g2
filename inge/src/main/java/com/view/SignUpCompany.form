@@ -60,15 +60,6 @@
     <properties/>
     <border type="none" title=""/>
     <children>
-      <component id="32526" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="Name:"/>
-        </properties>
-      </component>
       <component id="e138" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -466,6 +457,15 @@
           <forms/>
         </constraints>
         <properties/>
+      </component>
+      <component id="32526" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Name:"/>
+        </properties>
       </component>
     </children>
   </grid>

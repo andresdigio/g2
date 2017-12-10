@@ -1,27 +1,105 @@
 package com.view;
 
+import com.Control.Control;
+import com.model.Singleton;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.util.Locale;
+
+import static com.view.app.company;
+import static com.view.app.goToApp;
+import static com.view.app.user;
 
 /**
  * Created by martina on 12/7/17.
  */
 public class UserSettings {
-    private JPanel panel1;
+    private JFrame frame;
+    private JPanel panel;
+    private JPanel singUp;
+    private JTextField address;
+    private JTextField zip;
+    private JTextField telephoneNumber;
     private JComboBox country;
-    private JComboBox province;
-    private JComboBox city;
-    private JTextField address1;
-    private JTextField address2;
-    private JTextField zipcode;
-    private JTextField phoneNum;
-    private JComboBox phoneType;
-    private JButton save;
-    private JButton cancel;
-    private JTextArea name;
-    private JTextArea email;
-    private JTextArea password;
+    private JTextField name;
+    private JTextField email;
+    private JButton cancelBtn;
+    private JButton saveBtn;
+    private JTextField province;
+    private JTextField department;
+    private JButton deleteBtn;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public UserSettings(JFrame frame) {
+        this.frame = frame;
+
+        initOptions();
+
+        saveBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!incorrectInput()) {
+                    Control.signUpClient(user.getUsername(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
+                    goToApp(frame);
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "All information must be inserted");
+            }
+        });
+
+        cancelBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                goToApp(frame);
+            }
+        });
+
+
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Control.deleteClient(user.getUsername());
+                user = null;
+                goToApp(frame);
+            }
+        });
     }
+
+    public void initOptions(){
+        name.setText(user.getName());
+        email.setText(user.getEmail());
+
+        initCountries();
+        country.setSelectedItem(user.getLocation().getCountry());
+        province.setText(user.getLocation().getProvince());
+        department.setText(user.getLocation().getCity());
+        address.setText(user.getLocation().getAddress());
+        zip.setText(user.getLocation().getZipCode());
+        telephoneNumber.setText(user.getPhoneNum());
+    }
+
+    public void initCountries() {
+        String[] locales = Locale.getISOCountries();
+
+        for (String countryCode : locales) {
+            Locale obj = new Locale("", countryCode);
+            country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
+        }
+    }
+
+    private boolean incorrectInput() {
+        return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || department.getText().equals("");
+    }
+    /*
+    public static void main(String[] args) {
+        Singleton.init();
+        JFrame frame = new JFrame("User Settings");
+        frame.setContentPane(new UserSettings(frame).panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.pack();
+    }
+    */
 }

@@ -1,8 +1,11 @@
 package com.view;
 
 import com.Control.Control;
+import com.model.Company;
 import com.model.Login;
 import com.model.Singleton;
+import com.model.User;
+import com.sun.deploy.util.SessionState;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +22,8 @@ public class app extends JFrame{
     private JButton signUpAsClientButton;
     private JButton signUpAsCompanyButton;
     private JButton logInButton;
+    public static User user;
+    public static Company company;
 
     public app(JFrame frame) {
         appFrame = frame;
