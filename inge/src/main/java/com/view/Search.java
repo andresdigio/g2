@@ -39,6 +39,7 @@ public class Search {
     private JComboBox loadSize;
 
     private static String chosen;
+    private static Company companyChosen;
     private List<Company> companies;
 
     public Search(JFrame frame) {
@@ -54,6 +55,10 @@ public class Search {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 chosen = list.getSelectedValue();
+                for(Company c: companies) {
+                    if(c.getName().equals(chosen))
+                        companyChosen = c;
+                }
             }
         });
 
@@ -64,7 +69,7 @@ public class Search {
                     JOptionPane.showMessageDialog(null, "Please select a company");
                 else
                     JOptionPane.showMessageDialog(null,"This is the email of the company you've chosen:\n\n"
-                    + chosen + "@gmail.com\n\nFeel free to contact them whenever you want!");
+                    + companyChosen.getEmail() + "\n\nFeel free to contact them whenever you want!");
 
             }
         });
