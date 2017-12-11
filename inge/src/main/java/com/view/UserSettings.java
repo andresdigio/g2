@@ -48,17 +48,17 @@ public class UserSettings {
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
                     Control.updateUser(user.getUsername(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
-                    goToApp(frame);
+                    goToSearch();
                 }
                 else
-                    JOptionPane.showMessageDialog(null, "Password creation must match confirmation");
+                    JOptionPane.showMessageDialog(null, "All information must be inserted and new password must match confirmation.");
             }
         });
 
         cancelBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                goToApp(frame);
+                goToSearch();
             }
         });
 
@@ -96,8 +96,17 @@ public class UserSettings {
         }
     }
 
+    private void goToSearch() {
+        JFrame aux = new JFrame("G2 - Logistics");
+        aux.setContentPane(new Search(aux).panel);
+        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        aux.pack();
+        frame.setVisible(false);
+        aux.setVisible(true);
+    }
+
     private boolean incorrectInput() {
-       return !String.valueOf(passwordCreation.getPassword()).equals(String.valueOf(passwordConfirmation.getPassword()));
+       return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || department.getText().equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
     /*
     public static void main(String[] args) {

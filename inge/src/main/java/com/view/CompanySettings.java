@@ -19,6 +19,7 @@ import static com.view.app.user;
 public class CompanySettings {
     private JFrame frame;
     public JPanel panel;
+    public JScrollPane srcPane;
 
     private JTextField name;
     private JTextField email;
@@ -55,11 +56,11 @@ public class CompanySettings {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
+                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), String.valueOf(passwordCreation.getPassword()).equals("") ? "" : Singleton.hash(String.valueOf(passwordCreation.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     goToApp(frame);
                 }
                 else
-                    JOptionPane.showMessageDialog(null, "All information must be inserted");
+                    JOptionPane.showMessageDialog(null, "All information must be inserted and new password must match confirmation.");
             }
         });
 
@@ -144,7 +145,7 @@ public class CompanySettings {
     }
 
     private boolean incorrectInput() {
-        return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("");
+        return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
     /*
     public static void main(String[] args) {

@@ -50,7 +50,7 @@ public class SignUpClient {
                     if(ret == 0)
                         JOptionPane.showMessageDialog(null, "Invalid username :(");
                 }else
-                    JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
+                    JOptionPane.showMessageDialog(null, "All information must be inserted and password creation must match confirmation.");
             }
         });
 
@@ -74,7 +74,7 @@ public class SignUpClient {
     }
 
     private boolean incorrectInput() {
-        return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zipcode.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || city.getText().equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
+        return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zipcode.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || city.getText().equals("") || String.valueOf(passwordConfirmation.getPassword()).equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
 
 //    public static void main(String[] args) {

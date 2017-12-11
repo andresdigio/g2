@@ -31,7 +31,7 @@
     <colspec value="fill:200px:noGrow"/>
     <colspec value="fill:200px:noGrow"/>
     <constraints>
-      <xy x="0" y="0" width="567" height="385"/>
+      <xy x="0" y="0" width="567" height="394"/>
     </constraints>
     <properties/>
     <border type="empty" title-justification="1">
@@ -170,7 +170,7 @@
           <forms/>
         </constraints>
         <properties>
-          <text value="Department:"/>
+          <text value="City:"/>
         </properties>
       </component>
       <component id="ab55b" class="javax.swing.JLabel">
@@ -264,6 +264,7 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <font size="17"/>
           <text value="Edit profile"/>
         </properties>
       </component>

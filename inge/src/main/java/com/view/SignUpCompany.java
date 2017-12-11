@@ -59,7 +59,7 @@ public class SignUpCompany {
                     goToApp(frame);
                 }
                 else
-                    JOptionPane.showMessageDialog(null, "All information must be inserted and confirmation password must match password");
+                    JOptionPane.showMessageDialog(null, "All information must be inserted and password creation must match confirmation.");
             }
         });
 
@@ -117,7 +117,7 @@ public class SignUpCompany {
     }
 
     private boolean incorrectInput() {
-        return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("") || !String.valueOf(confirmationPassword.getPassword()).equals(String.valueOf(creationPassword.getPassword()));
+        return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("") || String.valueOf(confirmationPassword.getPassword()).equals("") || !String.valueOf(confirmationPassword.getPassword()).equals(String.valueOf(creationPassword.getPassword()));
     }
 
 //    public static void main(String ... args){

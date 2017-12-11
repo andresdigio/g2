@@ -44,7 +44,7 @@ public class app extends JFrame{
                         break;
                     case COMPANY:
                         aux = new JFrame("G2 - Logistics");
-                        aux.setContentPane(new CompanySettings(aux).panel);
+                        aux.setContentPane(new CompanySettings(aux).srcPane);
                         aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                         aux.pack();
                         appFrame.setVisible(false);

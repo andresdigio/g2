@@ -242,7 +242,7 @@
               <forms/>
             </constraints>
             <properties>
-              <text value="Department:"/>
+              <text value="City:"/>
             </properties>
           </component>
           <component id="16b29" class="javax.swing.JTextField" binding="department">
@@ -486,6 +486,7 @@
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
+              <font size="17"/>
               <text value="Sign up as company"/>
             </properties>
           </component>
