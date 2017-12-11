@@ -135,6 +135,15 @@ public class Search {
         });
     }
 
+    public static void goToSearch(JFrame frame){
+        JFrame aux = new JFrame("G2 - Logistics");
+        aux.setContentPane(new Search(aux).panel);
+        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        aux.pack();
+        frame.setVisible(false);
+        aux.setVisible(true);
+    }
+
     private void initCompanies() {
         companies = getCompanies();
         for (Company c: companies)

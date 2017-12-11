@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.util.Locale;
 
+import static com.view.Search.goToSearch;
 import static com.view.app.company;
 import static com.view.app.goToApp;
 import static com.view.app.user;
@@ -47,8 +48,8 @@ public class UserSettings {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    Control.updateUser(user.getUsername(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
-                    goToSearch();
+                    Control.updateUser(user.getUsername(), String.valueOf(passwordCreation.getPassword()).equals("")?"":Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
+                    goToSearch(frame);
                 }
                 else
                     JOptionPane.showMessageDialog(null, "All information must be inserted and new password must match confirmation.");

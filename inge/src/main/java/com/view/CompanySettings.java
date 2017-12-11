@@ -56,7 +56,7 @@ public class CompanySettings {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), String.valueOf(passwordCreation.getPassword()).equals("") ? "" : Singleton.hash(String.valueOf(passwordCreation.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
+                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), String.valueOf(passwordCreation.getPassword()).equals("")?"":Singleton.hash(String.valueOf(passwordCreation.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     goToApp(frame);
                 }
                 else

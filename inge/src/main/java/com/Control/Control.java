@@ -150,7 +150,7 @@ public class Control {
 
     public static void updateCompany(String username,String ... args){
         try {
-            Singleton.db.createStatement().executeUpdate("UPDATE business_user SET name="+Singleton.param(args[0])+",email="+Singleton.param(args[1])+",pass="+Singleton.param(args[2])+", country="+Singleton.param(args[3])+", province="+Singleton.param(args[4])+", department="+Singleton.param(args[5])+", address="+Singleton.param(args[6])+", zip="+Singleton.param(args[7])+",  tel_number="+Singleton.param(args[8])+", serviceRange="+Singleton.param(args[9])+", serviceType="+Singleton.param(args[10])+", serviceCharacteristics="+Singleton.param(args[11])+", serviceIncoterms="+Singleton.param(args[12])+", serviceIncludes="+Singleton.param(args[13])+",transportContainer="+Singleton.param(args[14])+", transportType="+Singleton.param(args[15])+", loadSize="+Singleton.param(args[16])+", loadType="+Singleton.param(args[17])+" WHERE username ="+Singleton.param(username)+";");
+            Singleton.db.createStatement().executeUpdate("UPDATE business_user SET name="+Singleton.param(args[0])+",email=" +Singleton.param(args[1])+ pass(args[2],false) +", country="+Singleton.param(args[3])+", province="+Singleton.param(args[4])+", department="+Singleton.param(args[5])+", address="+Singleton.param(args[6])+", zip="+Singleton.param(args[7])+",  tel_number="+Singleton.param(args[8])+", serviceRange="+Singleton.param(args[9])+", serviceType="+Singleton.param(args[10])+", serviceCharacteristics="+Singleton.param(args[11])+", serviceIncoterms="+Singleton.param(args[12])+", serviceIncludes="+Singleton.param(args[13])+",transportContainer="+Singleton.param(args[14])+", transportType="+Singleton.param(args[15])+", loadSize="+Singleton.param(args[16])+", loadType="+Singleton.param(args[17])+" WHERE username ="+Singleton.param(username)+";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -158,10 +158,17 @@ public class Control {
 
     public static void updateUser(String username,String ... args){
         try {
-            Singleton.db.createStatement().executeUpdate("UPDATE client_user SET pass="+Singleton.param(args[0])+", email="+Singleton.param(args[1])+", country="+Singleton.param(args[2])+", province="+Singleton.param(args[3])+", department="+Singleton.param(args[4])+", address="+Singleton.param(args[5])+", zip="+Singleton.param(args[6])+", tel_number="+Singleton.param(args[7])+", name="+Singleton.param(args[8])+" WHERE username = " + Singleton.param(username) + ";");
+            System.out.println(args[0]);
+            Singleton.db.createStatement().executeUpdate("UPDATE client_user SET " + pass(args[0], true) +" email="+Singleton.param(args[1])+", country="+Singleton.param(args[2])+", province="+Singleton.param(args[3])+", department="+Singleton.param(args[4])+", address="+Singleton.param(args[5])+", zip="+Singleton.param(args[6])+", tel_number="+Singleton.param(args[7])+", name="+Singleton.param(args[8])+" WHERE username = " + Singleton.param(username) + ";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String pass(String check, boolean first){
+        if(check.equals(""))
+            return "";
+        return (first?"":",") + "pass=" + Singleton.param(check) + ",";
     }
 
     public static void deleteCompany(String username){
@@ -178,9 +185,5 @@ public class Control {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static int makeMeeting(String productType, float price, String username, String companyName) {
-        return 1;
     }
 }

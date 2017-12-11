@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static com.view.Search.goToSearch;
+
 /**
  * Created by Andres on 03/12/2017.
  */
@@ -35,12 +37,7 @@ public class app extends JFrame{
                         JOptionPane.showMessageDialog(appFrame, "Failed authentication.");
                         break;
                     case CLIENT:
-                        aux = new JFrame("G2 - Logistics");
-                        aux.setContentPane(new Search(aux).panel);
-                        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                        aux.pack();
-                        appFrame.setVisible(false);
-                        aux.setVisible(true);
+                        goToSearch(frame);
                         break;
                     case COMPANY:
                         aux = new JFrame("G2 - Logistics");
