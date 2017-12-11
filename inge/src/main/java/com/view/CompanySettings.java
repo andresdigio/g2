@@ -147,14 +147,4 @@ public class CompanySettings {
     private boolean incorrectInput() {
         return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
-    /*
-    public static void main(String[] args) {
-        Singleton.init();
-        JFrame frame = new JFrame("Company Settings");
-        frame.setContentPane(new CompanySettings(frame).panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.pack();
-    }
-    */
 }

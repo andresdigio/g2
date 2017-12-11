@@ -47,8 +47,10 @@ public class Search {
     public Search(JFrame frame) {
         this.frame = frame;
 
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         list.setModel(model);
+        list.setFixedCellHeight(50);
+        list.setBorder(new EmptyBorder(5,5, 5, 5));
 
         list.setFixedCellHeight(50);
         list.setBorder(new EmptyBorder(5,5,5,5));
@@ -200,14 +202,5 @@ public class Search {
         loadSize.addItem("Medium");
         loadSize.addItem("Large");
         loadSize.addItem("Oversized");
-    }
-
-    public static void main(String[] args) {
-        Singleton.init();
-        JFrame frame = new JFrame("G2 - Logistics");
-        frame.setContentPane(new Search(frame).panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.pack();
     }
 }

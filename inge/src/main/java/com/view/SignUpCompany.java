@@ -119,15 +119,4 @@ public class SignUpCompany {
     private boolean incorrectInput() {
         return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || phone.getText().equals("") || province.getText().equals("") || department.getText().equals("") || String.valueOf(confirmationPassword.getPassword()).equals("") || !String.valueOf(confirmationPassword.getPassword()).equals(String.valueOf(creationPassword.getPassword()));
     }
-
-//    public static void main(String ... args){
-//        Singleton.init();
-//        //SignUpCompany s = new SignUpCompany();
-//        JFrame frame = new JFrame("SignUpCompany");
-//
-//        frame.setContentPane(s.panel1);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//        frame.pack();
-//    }
 }
