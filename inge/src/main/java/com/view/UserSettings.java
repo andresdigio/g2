@@ -49,7 +49,7 @@ public class UserSettings {
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
                     Control.updateUser(user.getUsername(), String.valueOf(passwordCreation.getPassword()).equals("")?"":Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
-                    goToSearch(frame);
+                    goToSearch();
                 }
                 else
                     JOptionPane.showMessageDialog(null, "All information must be inserted and new password must match confirmation.");

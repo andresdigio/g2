@@ -104,7 +104,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="107">
               <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-              <folding />
+              <folding>
+                <marker date="1512962181615" expanded="true" signature="1765:2181" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="1844:2171" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="2254:2672" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="2333:2662" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="2726:2985" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="3030:3305" ph="{...}" />
+                <marker date="1512962181615" expanded="true" signature="3345:3411" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,22 +123,22 @@
             <state relative-caret-position="364">
               <caret line="170" column="29" lean-forward="false" selection-start-line="170" selection-start-column="29" selection-end-line="170" selection-end-column="29" />
               <folding>
-                <marker date="1512961578339" expanded="true" signature="626:690" ph="SELECT * FRO... business_user" />
-                <marker date="1512961578339" expanded="true" signature="959:1019" ph="SELECT * FRO... client_user" />
-                <marker date="1512961578339" expanded="true" signature="1876:1903" ph="SELECT * FRO... business_user" />
-                <marker date="1512961578339" expanded="true" signature="3359:3430" ph="SELECT usern... business_user" />
-                <marker date="1512961578339" expanded="true" signature="3528:3595" ph="SELECT usern... client_user" />
-                <marker date="1512961578339" expanded="true" signature="4188:4491" ph="INSERT INTO business_user... " />
-                <marker date="1512961578339" expanded="true" signature="4815:4974" ph="INSERT INTO client_user... " />
-                <marker date="1512961578339" expanded="true" signature="5248:5313" ph="UPDATE busin... " />
-                <marker date="1512961578339" expanded="true" signature="5248:5340" ph="UPDATE busin... " />
-                <marker date="1512961578339" expanded="true" signature="5248:6022" ph="UPDATE busin... " />
-                <marker date="1512961578339" expanded="true" signature="6322:6345" ph="UPDATE clien... " />
-                <marker date="1512961578339" expanded="true" signature="6322:6349" ph="UPDATE clien... " />
-                <marker date="1512961578339" expanded="true" signature="6322:6690" ph="UPDATE clien... " />
-                <marker date="1512961578339" expanded="true" signature="6322:6724" ph="UPDATE clien... " />
-                <marker date="1512961578339" expanded="true" signature="7132:7193" ph="DELETE FROM " />
-                <marker date="1512961578339" expanded="true" signature="7409:7468" ph="DELETE FROM " />
+                <marker date="1512962181611" expanded="true" signature="626:690" ph="SELECT * FRO... business_user" />
+                <marker date="1512962181611" expanded="true" signature="959:1019" ph="SELECT * FRO... client_user" />
+                <marker date="1512962181611" expanded="true" signature="1876:1903" ph="SELECT * FRO... business_user" />
+                <marker date="1512962181611" expanded="true" signature="3359:3430" ph="SELECT usern... business_user" />
+                <marker date="1512962181611" expanded="true" signature="3528:3595" ph="SELECT usern... client_user" />
+                <marker date="1512962181611" expanded="true" signature="4188:4491" ph="INSERT INTO business_user... " />
+                <marker date="1512962181611" expanded="true" signature="4815:4974" ph="INSERT INTO client_user... " />
+                <marker date="1512962181611" expanded="true" signature="5248:5313" ph="UPDATE busin... " />
+                <marker date="1512962181611" expanded="true" signature="5248:5340" ph="UPDATE busin... " />
+                <marker date="1512962181611" expanded="true" signature="5248:6022" ph="UPDATE busin... " />
+                <marker date="1512962181611" expanded="true" signature="6322:6345" ph="UPDATE clien... " />
+                <marker date="1512962181611" expanded="true" signature="6322:6349" ph="UPDATE clien... " />
+                <marker date="1512962181611" expanded="true" signature="6322:6690" ph="UPDATE clien... " />
+                <marker date="1512962181611" expanded="true" signature="6322:6724" ph="UPDATE clien... " />
+                <marker date="1512962181611" expanded="true" signature="7132:7193" ph="DELETE FROM " />
+                <marker date="1512962181611" expanded="true" signature="7409:7468" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -143,22 +151,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompanySettings.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompanySettings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/view/CompanySettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="58" column="30" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="246">
+              <caret line="59" column="30" lean-forward="false" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+              <folding>
+                <element signature="e#2632#2633#0" expanded="true" />
+                <element signature="e#2678#2679#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserSettings.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserSettings.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/view/UserSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="189">
+              <caret line="51" column="31" lean-forward="false" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+              <folding>
+                <element signature="e#1954#1955#0" expanded="true" />
+                <element signature="e#1998#1999#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,8 +180,8 @@
       <file leaf-file-name="Search.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/view/Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="135" column="56" lean-forward="false" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
+            <state relative-caret-position="346">
+              <caret line="143" column="29" lean-forward="false" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -238,9 +252,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/model/Control.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/fbdd32a9-64f9-4384-8fdb-dca6388545b3/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/Control/Control.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/view/CompanySettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/Search.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/app.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/view/CompanySettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/view/UserSettings.java" />
       </list>
     </option>
@@ -948,12 +962,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512625864720</updated>
       <workItem from="1512625873234" duration="1815000" />
-      <workItem from="1512958348978" duration="3824000" />
+      <workItem from="1512958348978" duration="4106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5639000" />
+    <option name="totallyTimeSpent" value="5921000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -962,7 +976,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1130,31 +1144,23 @@
         <state relative-caret-position="364">
           <caret line="170" column="29" lean-forward="false" selection-start-line="170" selection-start-column="29" selection-end-line="170" selection-end-column="29" />
           <folding>
-            <marker date="1512961578339" expanded="true" signature="626:690" ph="SELECT * FRO... business_user" />
-            <marker date="1512961578339" expanded="true" signature="959:1019" ph="SELECT * FRO... client_user" />
-            <marker date="1512961578339" expanded="true" signature="1876:1903" ph="SELECT * FRO... business_user" />
-            <marker date="1512961578339" expanded="true" signature="3359:3430" ph="SELECT usern... business_user" />
-            <marker date="1512961578339" expanded="true" signature="3528:3595" ph="SELECT usern... client_user" />
-            <marker date="1512961578339" expanded="true" signature="4188:4491" ph="INSERT INTO business_user... " />
-            <marker date="1512961578339" expanded="true" signature="4815:4974" ph="INSERT INTO client_user... " />
-            <marker date="1512961578339" expanded="true" signature="5248:5313" ph="UPDATE busin... " />
-            <marker date="1512961578339" expanded="true" signature="5248:5340" ph="UPDATE busin... " />
-            <marker date="1512961578339" expanded="true" signature="5248:6022" ph="UPDATE busin... " />
-            <marker date="1512961578339" expanded="true" signature="6322:6345" ph="UPDATE clien... " />
-            <marker date="1512961578339" expanded="true" signature="6322:6349" ph="UPDATE clien... " />
-            <marker date="1512961578339" expanded="true" signature="6322:6690" ph="UPDATE clien... " />
-            <marker date="1512961578339" expanded="true" signature="6322:6724" ph="UPDATE clien... " />
-            <marker date="1512961578339" expanded="true" signature="7132:7193" ph="DELETE FROM " />
-            <marker date="1512961578339" expanded="true" signature="7409:7468" ph="DELETE FROM " />
+            <marker date="1512962181611" expanded="true" signature="626:690" ph="SELECT * FRO... business_user" />
+            <marker date="1512962181611" expanded="true" signature="959:1019" ph="SELECT * FRO... client_user" />
+            <marker date="1512962181611" expanded="true" signature="1876:1903" ph="SELECT * FRO... business_user" />
+            <marker date="1512962181611" expanded="true" signature="3359:3430" ph="SELECT usern... business_user" />
+            <marker date="1512962181611" expanded="true" signature="3528:3595" ph="SELECT usern... client_user" />
+            <marker date="1512962181611" expanded="true" signature="4188:4491" ph="INSERT INTO business_user... " />
+            <marker date="1512962181611" expanded="true" signature="4815:4974" ph="INSERT INTO client_user... " />
+            <marker date="1512962181611" expanded="true" signature="5248:5313" ph="UPDATE busin... " />
+            <marker date="1512962181611" expanded="true" signature="5248:5340" ph="UPDATE busin... " />
+            <marker date="1512962181611" expanded="true" signature="5248:6022" ph="UPDATE busin... " />
+            <marker date="1512962181611" expanded="true" signature="6322:6345" ph="UPDATE clien... " />
+            <marker date="1512962181611" expanded="true" signature="6322:6349" ph="UPDATE clien... " />
+            <marker date="1512962181611" expanded="true" signature="6322:6690" ph="UPDATE clien... " />
+            <marker date="1512962181611" expanded="true" signature="6322:6724" ph="UPDATE clien... " />
+            <marker date="1512962181611" expanded="true" signature="7132:7193" ph="DELETE FROM " />
+            <marker date="1512962181611" expanded="true" signature="7409:7468" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="135" column="56" lean-forward="false" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,23 +1168,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding>
+            <marker date="1512962181615" expanded="true" signature="1765:2181" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="1844:2171" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="2254:2672" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="2333:2662" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="2726:2985" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="3030:3305" ph="{...}" />
+            <marker date="1512962181615" expanded="true" signature="3345:3411" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/CompanySettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="59" column="30" lean-forward="false" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+          <folding>
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="143" column="29" lean-forward="false" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/view/UserSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/CompanySettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="58" column="30" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="51" column="31" lean-forward="false" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+          <folding>
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
