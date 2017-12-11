@@ -120,9 +120,9 @@ public class Search {
         editProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aux = new JFrame("app");
+                JFrame aux = new JFrame("G2 - Logistics");
                 aux.setContentPane(new UserSettings(aux).panel);
-                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 aux.pack();
                 frame.setVisible(false);
                 aux.setVisible(true);
@@ -184,7 +184,7 @@ public class Search {
 
     public static void main(String[] args) {
         Singleton.init();
-        JFrame frame = new JFrame("Search Companies");
+        JFrame frame = new JFrame("G2 - Logistics");
         frame.setContentPane(new Search(frame).panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

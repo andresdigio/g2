@@ -35,17 +35,17 @@ public class app extends JFrame{
                         JOptionPane.showMessageDialog(appFrame, "Failed authentication.");
                         break;
                     case CLIENT:
-                        aux = new JFrame("Search companies");
+                        aux = new JFrame("G2 - Logistics");
                         aux.setContentPane(new Search(aux).panel);
-                        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                         aux.pack();
                         appFrame.setVisible(false);
                         aux.setVisible(true);
                         break;
                     case COMPANY:
-                        aux = new JFrame("Edit Company");
+                        aux = new JFrame("G2 - Logistics");
                         aux.setContentPane(new CompanySettings(aux).panel);
-                        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                         aux.pack();
                         appFrame.setVisible(false);
                         aux.setVisible(true);
@@ -56,9 +56,9 @@ public class app extends JFrame{
         signUpAsClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aux = new JFrame("Sign up as client");
+                JFrame aux = new JFrame("G2 - Logistics");
                 aux.setContentPane(new SignUpClient(aux).singUp);
-                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 aux.pack();
                 appFrame.setVisible(false);
                 aux.setVisible(true);
@@ -68,9 +68,9 @@ public class app extends JFrame{
         signUpAsCompanyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame aux = new JFrame("Sign up as company");
-                aux.setContentPane(new SignUpCompany(aux).panel1);
-                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                JFrame aux = new JFrame("G2 - Logistics");
+                aux.setContentPane(new SignUpCompany(aux).srcPane);
+                aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 aux.pack();
                 appFrame.setVisible(false);
                 aux.setVisible(true);
@@ -79,9 +79,9 @@ public class app extends JFrame{
     }
 
     public static void goToApp(JFrame frame){
-        JFrame aux = new JFrame("app");
+        JFrame aux = new JFrame("G2 - Logistics");
         aux.setContentPane(new app(aux).panel1);
-        aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         aux.pack();
         frame.setVisible(false);
         aux.setVisible(true);
@@ -89,9 +89,9 @@ public class app extends JFrame{
 
     public static void main(String[] args) {
         Singleton.init();
-        appFrame = new JFrame("app");
+        appFrame = new JFrame("G2 - Logistics");
         appFrame.setContentPane(new app(appFrame).panel1);
-        appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        appFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         appFrame.pack();
         appFrame.setVisible(true);
     }

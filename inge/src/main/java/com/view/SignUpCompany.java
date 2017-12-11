@@ -4,6 +4,7 @@ import com.Control.Control;
 import com.model.Singleton;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
@@ -13,6 +14,7 @@ import static com.view.app.goToApp;
 public class SignUpCompany {
     private JFrame frame;
     public JPanel panel1;
+    public JScrollPane srcPane;
 
     private JTextField name;
     private JTextField email;

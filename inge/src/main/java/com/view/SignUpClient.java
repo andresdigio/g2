@@ -40,7 +40,6 @@ public class SignUpClient {
 
         initCountries();
 
-        //TODO necesito inputs de los datos que estan en el comentario de la linea 35 y pasarlos asi como parametros.
         btSingUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
