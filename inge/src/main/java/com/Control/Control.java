@@ -4,12 +4,14 @@ import com.model.Company;
 import com.model.Login;
 import com.model.Singleton;
 import com.model.User;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 
 import javax.swing.*;
 import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -182,6 +184,14 @@ public class Control {
     public static void deleteClient(String username){
         try {
             Singleton.db.createStatement().executeUpdate("DELETE FROM client_user WHERE username = '" + username + "';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void contact(String username, String username1) {
+        try {
+            Singleton.db.createStatement().executeUpdate("INSERT INTO operation(cli,bus,date) VALUES ('"+username1+"','"+username+"','"+new Timestamp(System.currentTimeMillis())+"'); ");
         } catch (SQLException e) {
             e.printStackTrace();
         }

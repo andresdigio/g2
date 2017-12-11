@@ -1,10 +1,12 @@
 package com.view;
 
+import com.Control.Control;
 import com.model.Company;
 import com.model.Singleton;
 import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
@@ -48,6 +50,9 @@ public class Search {
         model = new DefaultListModel<String>();
         list.setModel(model);
 
+        list.setFixedCellHeight(50);
+        list.setBorder(new EmptyBorder(5,5,5,5));
+
         initCompanies();
         initFilters();
 
@@ -67,10 +72,11 @@ public class Search {
             public void actionPerformed(ActionEvent e) {
                 if(chosen == null)
                     JOptionPane.showMessageDialog(null, "Please select a company");
-                else
-                    JOptionPane.showMessageDialog(null,"This is the email of the company you've chosen:\n\n"
-                    + companyChosen.getEmail() + "\n\nFeel free to contact them whenever you want!");
-
+                else {
+                    JOptionPane.showMessageDialog(null, "This is the email of the company you've chosen:\n\n"
+                            + companyChosen.getEmail() + "\n\nFeel free to contact them whenever you want!");
+                    Control.contact(companyChosen.getUsername(),app.user.getUsername());
+                }
             }
         });
 
