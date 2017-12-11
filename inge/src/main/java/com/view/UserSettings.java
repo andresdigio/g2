@@ -78,6 +78,7 @@ public class UserSettings {
         email.setText(user.getEmail());
 
         initCountries();
+
         country.setSelectedItem(user.getLocation().getCountry());
         province.setText(user.getLocation().getProvince());
         department.setText(user.getLocation().getCity());
@@ -96,7 +97,7 @@ public class UserSettings {
     }
 
     private boolean incorrectInput() {
-       return String.valueOf(passwordCreation.getPassword()).equals(String.valueOf(passwordConfirmation.getPassword()));
+       return !String.valueOf(passwordCreation.getPassword()).equals(String.valueOf(passwordConfirmation.getPassword()));
     }
     /*
     public static void main(String[] args) {
