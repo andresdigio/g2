@@ -19,26 +19,32 @@ import static com.view.app.user;
 public class CompanySettings {
     private JFrame frame;
     public JPanel panel;
+
     private JTextField name;
     private JTextField email;
-    private JComboBox country;
     private JTextField province;
     private JTextField department;
     private JTextField address;
     private JTextField zip;
     private JTextField phone;
+    private JTextField serviceIncoterms;
+    private JTextField loadType;
+
+    private JComboBox country;
     private JComboBox serviceRange;
     private JComboBox serviceType;
     private JComboBox serviceCharacteristics;
     private JComboBox serviceIncludes;
-    private JTextField serviceIncoterms;
     private JComboBox transportContainer;
     private JComboBox transportType;
     private JComboBox loadSize;
-    private JTextField loadType;
+
     private JButton saveBtn;
     private JButton cancelButton;
     private JButton deleteBtn;
+
+    private JPasswordField passwordCreation;
+    private JPasswordField passwordConfirmation;
 
     public CompanySettings(JFrame frame){
         this.frame = frame;
@@ -49,7 +55,7 @@ public class CompanySettings {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), Singleton.hash(String.valueOf(company.ge)), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
+                    Control.updateCompany(company.getUsername(),name.getText(), email.getText(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(),  phone.getText(), serviceRange.getSelectedItem().toString(), serviceType.getSelectedItem().toString(), serviceCharacteristics.getSelectedItem().toString(), serviceIncoterms.getText(), serviceIncludes.getSelectedItem().toString(),transportContainer.getSelectedItem().toString(), transportType.getSelectedItem().toString(), loadSize.getSelectedItem().toString(), loadType.getText());
                     goToApp(frame);
                 }
                 else

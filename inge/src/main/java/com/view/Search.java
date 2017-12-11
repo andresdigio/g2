@@ -27,6 +27,7 @@ public class Search {
     private JButton contactButton;
     private JButton logOutButton;
     private JButton searchBtn;
+    private JButton editProfileButton;
 
     private JComboBox country;
     private JComboBox serviceRange;
@@ -113,6 +114,18 @@ public class Search {
                         model.removeElement(c.getName());
                     }
                 }
+            }
+        });
+
+        editProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame aux = new JFrame("app");
+                aux.setContentPane(new UserSettings(aux).panel);
+                aux.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                aux.pack();
+                frame.setVisible(false);
+                aux.setVisible(true);
             }
         });
     }

@@ -18,18 +18,24 @@ import static com.view.app.user;
  */
 public class UserSettings {
     private JFrame frame;
-    private JPanel panel;
-    private JPanel singUp;
+
+    public JPanel panel;
+
     private JTextField address;
     private JTextField zip;
     private JTextField telephoneNumber;
-    private JComboBox country;
     private JTextField name;
     private JTextField email;
-    private JButton cancelBtn;
-    private JButton saveBtn;
     private JTextField province;
     private JTextField department;
+
+    private JPasswordField passwordConfirmation;
+    private JPasswordField passwordCreation;
+
+    private JComboBox country;
+
+    private JButton cancelBtn;
+    private JButton saveBtn;
     private JButton deleteBtn;
 
     public UserSettings(JFrame frame) {
@@ -45,7 +51,7 @@ public class UserSettings {
                     goToApp(frame);
                 }
                 else
-                    JOptionPane.showMessageDialog(null, "All information must be inserted");
+                    JOptionPane.showMessageDialog(null, "Password creation must match confirmation");
             }
         });
 
@@ -90,7 +96,7 @@ public class UserSettings {
     }
 
     private boolean incorrectInput() {
-        return name.getText().equals("") || address.getText().equals("") || zip.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || department.getText().equals("");
+       return String.valueOf(passwordCreation.getPassword()).equals(String.valueOf(passwordConfirmation.getPassword()));
     }
     /*
     public static void main(String[] args) {
