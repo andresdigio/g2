@@ -8,3 +8,5 @@ inge/\.idea/
 *.iml
 
 inge/target/*
+
+inge/.idea/*

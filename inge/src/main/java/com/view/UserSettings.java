@@ -59,7 +59,7 @@ public class UserSettings {
         cancelBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                goToSearch();
+                goToSearch(frame);
             }
         });
 
@@ -95,15 +95,6 @@ public class UserSettings {
             Locale obj = new Locale("", countryCode);
             country.addItem(obj.getDisplayCountry(Locale.ENGLISH));
         }
-    }
-
-    private void goToSearch() {
-        JFrame aux = new JFrame("G2 - Logistics");
-        aux.setContentPane(new Search(aux).panel);
-        aux.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        aux.pack();
-        frame.setVisible(false);
-        aux.setVisible(true);
     }
 
     private boolean incorrectInput() {
