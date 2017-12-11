@@ -1,11 +1,9 @@
 package com.view;
 
-import com.Control.Control;
-import com.model.Company;
-import com.model.Login;
-import com.model.Singleton;
 import com.model.User;
-import com.sun.deploy.util.SessionState;
+import com.model.Company;
+import com.model.Singleton;
+import com.model.Login;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +13,7 @@ import java.awt.event.ActionListener;
  * Created by Andres on 03/12/2017.
  */
 public class app extends JFrame{
-    public static JFrame appFrame;
+    private static JFrame appFrame;
     public JPanel panel1;
     private JTextField username;
     private JPasswordField password;

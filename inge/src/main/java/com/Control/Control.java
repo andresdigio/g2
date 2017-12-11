@@ -3,6 +3,7 @@ package com.Control;
 import com.model.Company;
 import com.model.Login;
 import com.model.Singleton;
+import com.model.User;
 
 import javax.swing.*;
 import javax.xml.transform.Result;
@@ -17,10 +18,9 @@ import static com.model.Singleton.hash;
 
 public class Control {
 
-    public static com.model.Login login(String username, String password){
+    public static Login login(String username, String password){
         Statement stmt = null;
         password = hash(password);
-        System.out.println(password);
 
         try {
             stmt = Singleton.db.createStatement();
@@ -29,6 +29,7 @@ public class Control {
             while (rs.next()) {
                 if(rs.getString("pass").equals(password)) {
                     System.out.println("Correct password! Welcome business client.");
+                    com.view.app.company = new Company(rs);
                     return Login.COMPANY;
                 }
             }
@@ -38,6 +39,7 @@ public class Control {
             while (rs.next()) {
                 if(rs.getString("pass").equals(password)) {
                     System.out.println("Correct password! Welcome client.");
+                    com.view.app.user = new User(rs);
                     return Login.CLIENT;
                 }
             }
