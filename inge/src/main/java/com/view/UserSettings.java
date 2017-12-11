@@ -47,7 +47,7 @@ public class UserSettings {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!incorrectInput()) {
-                    Control.signUpClient(user.getUsername(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
+                    Control.updateUser(user.getUsername(), Singleton.hash(String.valueOf(passwordCreation.getPassword())), email.getText(), country.getSelectedItem().toString(), province.getText(), department.getText(), address.getText(), zip.getText(), telephoneNumber.getText(), name.getText());
                     goToApp(frame);
                 }
                 else

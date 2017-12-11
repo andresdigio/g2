@@ -158,7 +158,7 @@ public class Control {
 
     public static void updateUser(String username,String ... args){
         try {
-            Singleton.db.createStatement().executeUpdate("UPDATE client_user SET pass="+Singleton.param(args[0])+", email="+Singleton.param(args[1])+", country="+Singleton.param(args[2])+", province="+Singleton.param(args[3])+", department="+Singleton.param(args[4])+", address="+Singleton.param(args[5])+", zip="+Singleton.param(args[6])+", tel_number="+Singleton.param(args[7])+", name="+Singleton.param(args[8])+") WHERE username = " + Singleton.param(username) + ";");
+            Singleton.db.createStatement().executeUpdate("UPDATE client_user SET pass="+Singleton.param(args[0])+", email="+Singleton.param(args[1])+", country="+Singleton.param(args[2])+", province="+Singleton.param(args[3])+", department="+Singleton.param(args[4])+", address="+Singleton.param(args[5])+", zip="+Singleton.param(args[6])+", tel_number="+Singleton.param(args[7])+", name="+Singleton.param(args[8])+" WHERE username = " + Singleton.param(username) + ";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
