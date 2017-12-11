@@ -24,21 +24,19 @@ public class Control {
 
         try {
             stmt = Singleton.db.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT username , pass FROM business_user WHERE username = '" +  username + "';");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM business_user WHERE username = '" +  username + "';");
 
             while (rs.next()) {
                 if(rs.getString("pass").equals(password)) {
-                    System.out.println("Correct password! Welcome business client.");
                     com.view.app.company = new Company(rs);
                     return Login.COMPANY;
                 }
             }
 
-            rs = stmt.executeQuery("SELECT username , pass FROM client_user WHERE username = '" + username+ "';");
+            rs = stmt.executeQuery("SELECT * FROM client_user WHERE username = '" + username+ "';");
 
             while (rs.next()) {
                 if(rs.getString("pass").equals(password)) {
-                    System.out.println("Correct password! Welcome client.");
                     com.view.app.user = new User(rs);
                     return Login.CLIENT;
                 }
