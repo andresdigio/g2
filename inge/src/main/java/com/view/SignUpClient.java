@@ -76,12 +76,4 @@ public class SignUpClient {
     private boolean incorrectInput() {
         return name.getText().equals("") || username.getText().equals("") || address.getText().equals("") || zipcode.getText().equals("") || email.getText().equals("") || telephoneNumber.getText().equals("") || province.getText().equals("") || city.getText().equals("") || String.valueOf(passwordConfirmation.getPassword()).equals("") || !String.valueOf(passwordConfirmation.getPassword()).equals(String.valueOf(passwordCreation.getPassword()));
     }
-
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("SignUpClient");
-//        frame.setContentPane(new SignUpClient().singUp);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
 }
